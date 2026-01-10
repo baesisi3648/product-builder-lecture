@@ -104,3 +104,21 @@ themeToggleBtn.addEventListener('click', () => {
     }
     localStorage.setItem('theme', theme);
 });
+
+const foods = [
+    "Pizza 🍕", "Chicken 🍗", "Burger 🍔", "Sushi 🍣", 
+    "Pasta 🍝", "Kimchi Stew 🥘", "Bibimbap 🍚", 
+    "Tacos 🌮", "Steak 🥩", "Salad 🥗", "Ramen 🍜", 
+    "Sandwich 🥪", "Curry 🍛", "Tteokbokki 🍢"
+];
+
+document.getElementById('menu-btn').addEventListener('click', () => {
+    const menuResult = document.getElementById('menu-result');
+    const randomFood = foods[Math.floor(Math.random() * foods.length)];
+    menuResult.textContent = randomFood;
+    
+    // Add a simple animation class
+    menuResult.style.animation = 'none';
+    menuResult.offsetHeight; /* trigger reflow */
+    menuResult.style.animation = 'popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+});
