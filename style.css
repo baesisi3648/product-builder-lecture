@@ -120,6 +120,55 @@ body {
     margin-top: 10px;
 }
 
+#contact-form {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+#submit-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.1em;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#submit-btn:hover {
+    background-color: var(--btn-hover);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
 @keyframes popIn {
     0% {
         opacity: 0;

@@ -89,6 +89,10 @@ const appTitle = document.getElementById('app-title');
 const generateBtn = document.getElementById('generate-btn');
 const menuTitle = document.getElementById('menu-title');
 const menuBtn = document.getElementById('menu-btn');
+const contactTitle = document.getElementById('contact-title');
+const labelEmail = document.getElementById('label-email');
+const labelMessage = document.getElementById('label-message');
+const submitBtn = document.getElementById('submit-btn');
 
 const translations = {
     en: {
@@ -98,7 +102,11 @@ const translations = {
         menuBtn: "Suggest Dinner",
         themeDark: "Dark Mode",
         themeLight: "Light Mode",
-        langBtn: "한글"
+        langBtn: "한글",
+        contactTitle: "Partnership Inquiry",
+        labelEmail: "Your Email:",
+        labelMessage: "Message:",
+        submitBtn: "Send Message"
     },
     ko: {
         title: "로또 번호 생성기",
@@ -107,7 +115,11 @@ const translations = {
         menuBtn: "메뉴 추천",
         themeDark: "다크 모드",
         themeLight: "라이트 모드",
-        langBtn: "English"
+        langBtn: "English",
+        contactTitle: "제휴 문의",
+        labelEmail: "이메일 주소:",
+        labelMessage: "문의 내용:",
+        submitBtn: "메시지 보내기"
     }
 };
 
@@ -140,6 +152,10 @@ function updateUI() {
     menuTitle.textContent = t.menuTitle;
     menuBtn.textContent = t.menuBtn;
     langToggleBtn.textContent = t.langBtn;
+    contactTitle.textContent = t.contactTitle;
+    labelEmail.textContent = t.labelEmail;
+    labelMessage.textContent = t.labelMessage;
+    submitBtn.textContent = t.submitBtn;
 
     // Theme Button Text
     themeToggleBtn.textContent = currentTheme === 'dark' ? t.themeLight : t.themeDark;
