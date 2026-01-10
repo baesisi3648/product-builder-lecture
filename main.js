@@ -82,39 +82,92 @@ document.getElementById('generate-btn').addEventListener('click', () => {
     }
 });
 
+// Theme and Language Logic
 const themeToggleBtn = document.getElementById('theme-toggle');
-const currentTheme = localStorage.getItem('theme');
+const langToggleBtn = document.getElementById('lang-toggle');
+const appTitle = document.getElementById('app-title');
+const generateBtn = document.getElementById('generate-btn');
+const menuTitle = document.getElementById('menu-title');
+const menuBtn = document.getElementById('menu-btn');
 
-if (currentTheme) {
-    document.documentElement.setAttribute('data-theme', currentTheme);
-    if (currentTheme === 'dark') {
-        themeToggleBtn.textContent = 'Light Mode';
+const translations = {
+    en: {
+        title: "Lotto Number Generator",
+        genBtn: "Generate Numbers",
+        menuTitle: "Dinner Menu Recommendation",
+        menuBtn: "Suggest Dinner",
+        themeDark: "Dark Mode",
+        themeLight: "Light Mode",
+        langBtn: "한글"
+    },
+    ko: {
+        title: "로또 번호 생성기",
+        genBtn: "번호 생성",
+        menuTitle: "저녁 메뉴 추천",
+        menuBtn: "메뉴 추천",
+        themeDark: "다크 모드",
+        themeLight: "라이트 모드",
+        langBtn: "English"
     }
+};
+
+const foods = {
+    en: [
+        "Pizza 🍕", "Chicken 🍗", "Burger 🍔", "Sushi 🍣", 
+        "Pasta 🍝", "Kimchi Stew 🥘", "Bibimbap 🍚", 
+        "Tacos 🌮", "Steak 🥩", "Salad 🥗", "Ramen 🍜", 
+        "Sandwich 🥪", "Curry 🍛", "Tteokbokki 🍢"
+    ],
+    ko: [
+        "피자 🍕", "치킨 🍗", "햄버거 🍔", "초밥 🍣", 
+        "파스타 🍝", "김치찌개 🥘", "비빔밥 🍚", 
+        "타코 🌮", "스테이크 🥩", "샐러드 🥗", "라면 🍜", 
+        "샌드위치 🥪", "카레 🍛", "떡볶이 🍢"
+    ]
+};
+
+// State
+let currentLang = localStorage.getItem('lang') || 'en';
+let currentTheme = localStorage.getItem('theme') || 'light';
+
+// Initialization
+function updateUI() {
+    const t = translations[currentLang];
+    
+    // Text Content
+    appTitle.textContent = t.title;
+    generateBtn.textContent = t.genBtn;
+    menuTitle.textContent = t.menuTitle;
+    menuBtn.textContent = t.menuBtn;
+    langToggleBtn.textContent = t.langBtn;
+
+    // Theme Button Text
+    themeToggleBtn.textContent = currentTheme === 'dark' ? t.themeLight : t.themeDark;
+
+    // Theme Attribute
+    document.documentElement.setAttribute('data-theme', currentTheme);
 }
 
+// Initial Render
+updateUI();
+
+// Event Listeners
 themeToggleBtn.addEventListener('click', () => {
-    let theme = 'light';
-    if (document.documentElement.getAttribute('data-theme') !== 'dark') {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        themeToggleBtn.textContent = 'Light Mode';
-        theme = 'dark';
-    } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        themeToggleBtn.textContent = 'Dark Mode';
-    }
-    localStorage.setItem('theme', theme);
+    currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', currentTheme);
+    updateUI();
 });
 
-const foods = [
-    "Pizza 🍕", "Chicken 🍗", "Burger 🍔", "Sushi 🍣", 
-    "Pasta 🍝", "Kimchi Stew 🥘", "Bibimbap 🍚", 
-    "Tacos 🌮", "Steak 🥩", "Salad 🥗", "Ramen 🍜", 
-    "Sandwich 🥪", "Curry 🍛", "Tteokbokki 🍢"
-];
+langToggleBtn.addEventListener('click', () => {
+    currentLang = currentLang === 'en' ? 'ko' : 'en';
+    localStorage.setItem('lang', currentLang);
+    updateUI();
+});
 
 document.getElementById('menu-btn').addEventListener('click', () => {
     const menuResult = document.getElementById('menu-result');
-    const randomFood = foods[Math.floor(Math.random() * foods.length)];
+    const currentFoods = foods[currentLang];
+    const randomFood = currentFoods[Math.floor(Math.random() * currentFoods.length)];
     menuResult.textContent = randomFood;
     
     // Add a simple animation class

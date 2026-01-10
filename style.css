@@ -30,12 +30,18 @@ body {
 .container {
     text-align: center;
     position: relative;
+    padding-top: 60px; /* Add space for controls */
 }
 
-#theme-toggle {
+.controls {
     position: absolute;
-    top: -60px;
+    top: 0;
     right: 0;
+    display: flex;
+    gap: 10px;
+}
+
+#theme-toggle, #lang-toggle {
     background: none;
     border: 2px solid var(--text-color);
     color: var(--text-color);
@@ -46,7 +52,7 @@ body {
     transition: all 0.3s;
 }
 
-#theme-toggle:hover {
+#theme-toggle:hover, #lang-toggle:hover {
     background-color: var(--text-color);
     color: var(--bg-color);
 }
