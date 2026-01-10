@@ -67,22 +67,7 @@ class LottoNumber extends HTMLElement {
 
 customElements.define('lotto-number', LottoNumber);
 
-document.getElementById('generate-btn').addEventListener('click', () => {
-    const lottoNumbersContainer = document.getElementById('lotto-numbers-container');
-    lottoNumbersContainer.innerHTML = '';
-    const numbers = new Set();
-    while(numbers.size < 6) {
-        numbers.add(Math.floor(Math.random() * 45) + 1);
-    }
-
-    for (const number of Array.from(numbers).sort((a, b) => a - b)) {
-        const lottoNumberElement = document.createElement('lotto-number');
-        lottoNumberElement.setAttribute('number', number);
-        lottoNumbersContainer.appendChild(lottoNumberElement);
-    }
-});
-
-// Theme and Language Logic
+// --- DOM Elements ---
 const themeToggleBtn = document.getElementById('theme-toggle');
 const langToggleBtn = document.getElementById('lang-toggle');
 const appTitle = document.getElementById('app-title');
@@ -94,7 +79,13 @@ const labelEmail = document.getElementById('label-email');
 const labelMessage = document.getElementById('label-message');
 const submitBtn = document.getElementById('submit-btn');
 const commentsTitle = document.getElementById('comments-title');
+const animalTitle = document.getElementById('animal-title');
+const animalBtn = document.getElementById('animal-btn');
+const webcamContainer = document.getElementById('webcam-container');
+const labelContainer = document.getElementById('label-container');
+const lottoNumbersContainer = document.getElementById('lotto-numbers-container');
 
+// --- Data & State ---
 const translations = {
     en: {
         title: "Lotto Number Generator",
@@ -145,11 +136,16 @@ const foods = {
     ]
 };
 
-// State
 let currentLang = localStorage.getItem('lang') || 'en';
 let currentTheme = localStorage.getItem('theme') || 'light';
+let isRunning = false;
 
-// Initialization
+// --- Teachable Machine Setup ---
+const URL = "https://teachablemachine.withgoogle.com/models/inOwxk_tm/";
+let model, webcam, maxPredictions;
+
+// --- Functions ---
+
 function updateUI() {
     const t = translations[currentLang];
     
@@ -165,7 +161,7 @@ function updateUI() {
     submitBtn.textContent = t.submitBtn;
     commentsTitle.textContent = t.commentsTitle;
     animalTitle.textContent = t.animalTitle;
-    if (!isRunning) { // Only update button text if test hasn't started to avoid confusion or overwriting state
+    if (!isRunning) { 
         animalBtn.textContent = t.animalBtn;
     }
 
@@ -175,44 +171,6 @@ function updateUI() {
     // Theme Attribute
     document.documentElement.setAttribute('data-theme', currentTheme);
 }
-
-// Initial Render
-updateUI();
-
-// Event Listeners
-themeToggleBtn.addEventListener('click', () => {
-    currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    localStorage.setItem('theme', currentTheme);
-    updateUI();
-});
-
-langToggleBtn.addEventListener('click', () => {
-    currentLang = currentLang === 'en' ? 'ko' : 'en';
-    localStorage.setItem('lang', currentLang);
-    updateUI();
-});
-
-document.getElementById('menu-btn').addEventListener('click', () => {
-    const menuResult = document.getElementById('menu-result');
-    const currentFoods = foods[currentLang];
-    const randomFood = currentFoods[Math.floor(Math.random() * currentFoods.length)];
-    menuResult.textContent = randomFood;
-    
-    // Add a simple animation class
-    menuResult.style.animation = 'none';
-    menuResult.offsetHeight; /* trigger reflow */
-    menuResult.style.animation = 'popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-});
-
-// Teachable Machine Logic
-const animalBtn = document.getElementById('animal-btn');
-const animalTitle = document.getElementById('animal-title');
-const webcamContainer = document.getElementById('webcam-container');
-const labelContainer = document.getElementById('label-container');
-const URL = "https://teachablemachine.withgoogle.com/models/inOwxk_tm/";
-
-let model, webcam, maxPredictions;
-let isRunning = false;
 
 async function initAnimalTest() {
     if (isRunning) return;
@@ -232,7 +190,7 @@ async function initAnimalTest() {
     window.requestAnimationFrame(loop);
 
     webcamContainer.appendChild(webcam.canvas);
-    labelContainer.innerHTML = ''; // Clear previous labels if any
+    labelContainer.innerHTML = ''; 
     for (let i = 0; i < maxPredictions; i++) { 
         labelContainer.appendChild(document.createElement("div"));
     }
@@ -253,4 +211,47 @@ async function predict() {
     }
 }
 
+// --- Event Listeners ---
+
+generateBtn.addEventListener('click', () => {
+    lottoNumbersContainer.innerHTML = '';
+    const numbers = new Set();
+    while(numbers.size < 6) {
+        numbers.add(Math.floor(Math.random() * 45) + 1);
+    }
+
+    for (const number of Array.from(numbers).sort((a, b) => a - b)) {
+        const lottoNumberElement = document.createElement('lotto-number');
+        lottoNumberElement.setAttribute('number', number);
+        lottoNumbersContainer.appendChild(lottoNumberElement);
+    }
+});
+
+themeToggleBtn.addEventListener('click', () => {
+    currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', currentTheme);
+    updateUI();
+});
+
+langToggleBtn.addEventListener('click', () => {
+    currentLang = currentLang === 'en' ? 'ko' : 'en';
+    localStorage.setItem('lang', currentLang);
+    updateUI();
+});
+
+menuBtn.addEventListener('click', () => {
+    const menuResult = document.getElementById('menu-result');
+    const currentFoods = foods[currentLang];
+    const randomFood = currentFoods[Math.floor(Math.random() * currentFoods.length)];
+    menuResult.textContent = randomFood;
+    
+    // Add a simple animation class
+    menuResult.style.animation = 'none';
+    menuResult.offsetHeight; /* trigger reflow */
+    menuResult.style.animation = 'popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+});
+
 animalBtn.addEventListener('click', initAnimalTest);
+
+// --- Initial Render ---
+updateUI();
