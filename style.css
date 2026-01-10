@@ -176,6 +176,46 @@ body {
     }
     100% {
         opacity: 1;
-        transform: scale(1);
-    }
-}
+        
+            transform: scale(1);
+            }
+        }
+        
+        #animal-btn {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: var(--btn-bg);
+            color: var(--btn-text);
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        
+        #animal-btn:hover {
+            background-color: var(--btn-hover);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+        
+        #webcam-container {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        #webcam-container canvas {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        #label-container {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+        
+        #label-container div {
+            margin: 5px 0;
+        }
+        

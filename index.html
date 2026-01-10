@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lotto Number Generator</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -22,6 +24,13 @@
         <h2 id="menu-title">Dinner Menu Recommendation</h2>
         <button id="menu-btn">Suggest Dinner</button>
         <div id="menu-result"></div>
+
+        <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ccc;">
+
+        <h2 id="animal-title">Animal Face Test</h2>
+        <button id="animal-btn">Start Test</button>
+        <div id="webcam-container"></div>
+        <div id="label-container"></div>
 
         <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ccc;">
 

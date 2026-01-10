@@ -108,7 +108,9 @@ const translations = {
         labelEmail: "Your Email:",
         labelMessage: "Message:",
         submitBtn: "Send Message",
-        commentsTitle: "Comments"
+        commentsTitle: "Comments",
+        animalTitle: "Animal Face Test",
+        animalBtn: "Start Test"
     },
     ko: {
         title: "로또 번호 생성기",
@@ -122,7 +124,9 @@ const translations = {
         labelEmail: "이메일 주소:",
         labelMessage: "문의 내용:",
         submitBtn: "메시지 보내기",
-        commentsTitle: "댓글"
+        commentsTitle: "댓글",
+        animalTitle: "동물상 테스트",
+        animalBtn: "테스트 시작"
     }
 };
 
@@ -160,6 +164,10 @@ function updateUI() {
     labelMessage.textContent = t.labelMessage;
     submitBtn.textContent = t.submitBtn;
     commentsTitle.textContent = t.commentsTitle;
+    animalTitle.textContent = t.animalTitle;
+    if (!isRunning) { // Only update button text if test hasn't started to avoid confusion or overwriting state
+        animalBtn.textContent = t.animalBtn;
+    }
 
     // Theme Button Text
     themeToggleBtn.textContent = currentTheme === 'dark' ? t.themeLight : t.themeDark;
@@ -195,3 +203,54 @@ document.getElementById('menu-btn').addEventListener('click', () => {
     menuResult.offsetHeight; /* trigger reflow */
     menuResult.style.animation = 'popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
 });
+
+// Teachable Machine Logic
+const animalBtn = document.getElementById('animal-btn');
+const animalTitle = document.getElementById('animal-title');
+const webcamContainer = document.getElementById('webcam-container');
+const labelContainer = document.getElementById('label-container');
+const URL = "https://teachablemachine.withgoogle.com/models/inOwxk_tm/";
+
+let model, webcam, maxPredictions;
+let isRunning = false;
+
+async function initAnimalTest() {
+    if (isRunning) return;
+    isRunning = true;
+    animalBtn.disabled = true;
+
+    const modelURL = URL + "model.json";
+    const metadataURL = URL + "metadata.json";
+
+    model = await tmImage.load(modelURL, metadataURL);
+    maxPredictions = model.getTotalClasses();
+
+    const flip = true; 
+    webcam = new tmImage.Webcam(200, 200, flip); 
+    await webcam.setup(); 
+    await webcam.play();
+    window.requestAnimationFrame(loop);
+
+    webcamContainer.appendChild(webcam.canvas);
+    labelContainer.innerHTML = ''; // Clear previous labels if any
+    for (let i = 0; i < maxPredictions; i++) { 
+        labelContainer.appendChild(document.createElement("div"));
+    }
+}
+
+async function loop() {
+    webcam.update(); 
+    await predict();
+    window.requestAnimationFrame(loop);
+}
+
+async function predict() {
+    const prediction = await model.predict(webcam.canvas);
+    for (let i = 0; i < maxPredictions; i++) {
+        const classPrediction =
+            prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+        labelContainer.childNodes[i].innerHTML = classPrediction;
+    }
+}
+
+animalBtn.addEventListener('click', initAnimalTest);
