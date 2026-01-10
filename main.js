@@ -1,12 +1,14 @@
 
 class LottoNumber extends HTMLElement {
+  static get observedAttributes() {
+    return ['number'];
+  }
+
   constructor() {
     super();
-    const shadow = this.attachShadow({ mode: 'open' });
-    const wrapper = document.createElement('div');
-    wrapper.setAttribute('class', 'lotto-number');
-    const number = this.getAttribute('number');
-    wrapper.textContent = number;
+    this.shadow = this.attachShadow({ mode: 'open' });
+    this.wrapper = document.createElement('div');
+    this.wrapper.setAttribute('class', 'lotto-number');
 
     const style = document.createElement('style');
     style.textContent = `
@@ -21,19 +23,34 @@ class LottoNumber extends HTMLElement {
           font-size: 1.5em;
           font-weight: bold;
           box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+          color: #333;
       }
     `;
 
-    shadow.appendChild(style);
-    shadow.appendChild(wrapper);
+    this.shadow.appendChild(style);
+    this.shadow.appendChild(this.wrapper);
+  }
 
-    this.setNumberColor(parseInt(number, 10), wrapper);
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === 'number') {
+      this.render();
+    }
+  }
+
+  render() {
+    const number = this.getAttribute('number');
+    if (number) {
+        this.wrapper.textContent = number;
+        this.setNumberColor(parseInt(number, 10), this.wrapper);
+    }
   }
 
   setNumberColor(number, element) {
     let color;
+    let textColor = '#fff'; // Default text color for colored balls
     if (number <= 10) {
         color = '#fbe400'; // Yellow
+        textColor = '#333'; // Dark text for yellow
     } else if (number <= 20) {
         color = '#69c8f2'; // Blue
     } else if (number <= 30) {
@@ -44,6 +61,7 @@ class LottoNumber extends HTMLElement {
         color = '#b0d840'; // Green
     }
     element.style.backgroundColor = color;
+    element.style.color = textColor;
   }
 }
 
@@ -62,4 +80,27 @@ document.getElementById('generate-btn').addEventListener('click', () => {
         lottoNumberElement.setAttribute('number', number);
         lottoNumbersContainer.appendChild(lottoNumberElement);
     }
+});
+
+const themeToggleBtn = document.getElementById('theme-toggle');
+const currentTheme = localStorage.getItem('theme');
+
+if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    if (currentTheme === 'dark') {
+        themeToggleBtn.textContent = 'Light Mode';
+    }
+}
+
+themeToggleBtn.addEventListener('click', () => {
+    let theme = 'light';
+    if (document.documentElement.getAttribute('data-theme') !== 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeToggleBtn.textContent = 'Light Mode';
+        theme = 'dark';
+    } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        themeToggleBtn.textContent = 'Dark Mode';
+    }
+    localStorage.setItem('theme', theme);
 });

@@ -1,16 +1,54 @@
 
+:root {
+    --bg-color: #f0f0f0;
+    --text-color: #333;
+    --btn-bg: #4CAF50;
+    --btn-hover: #45a049;
+    --btn-text: white;
+}
+
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --btn-bg: #bb86fc;
+    --btn-hover: #9b65de;
+    --btn-text: #000;
+}
+
 body {
     font-family: sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     margin: 0;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
     text-align: center;
+    position: relative;
+}
+
+#theme-toggle {
+    position: absolute;
+    top: -60px;
+    right: 0;
+    background: none;
+    border: 2px solid var(--text-color);
+    color: var(--text-color);
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: all 0.3s;
+}
+
+#theme-toggle:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
 }
 
 #generate-btn {
@@ -19,15 +57,15 @@ body {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
     margin-bottom: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 #generate-btn:hover {
-    background-color: #45a049;
+    background-color: var(--btn-hover);
     box-shadow: 0 6px 12px rgba(0,0,0,0.2);
 }
 
