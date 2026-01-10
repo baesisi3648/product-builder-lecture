@@ -85,39 +85,56 @@ const webcamContainer = document.getElementById('webcam-container');
 const labelContainer = document.getElementById('label-container');
 const lottoNumbersContainer = document.getElementById('lotto-numbers-container');
 
+// Description Elements
+const lottoDesc = document.getElementById('lotto-desc');
+const menuDesc = document.getElementById('menu-desc');
+const animalDesc = document.getElementById('animal-desc');
+const contactDesc = document.getElementById('contact-desc');
+const privacyLink = document.getElementById('privacy-link');
+
 // --- Data & State ---
 const translations = {
     en: {
         title: "Lotto Number Generator",
         genBtn: "Generate Numbers",
+        lottoDesc: "Generate your lucky 6 numbers (1-45) instantly. Use this tool to get random combinations for your next lottery ticket.",
         menuTitle: "Dinner Menu Recommendation",
         menuBtn: "Suggest Dinner",
+        menuDesc: "Can't decide what to eat? Let our randomizer pick a delicious meal for you from various cuisines including Korean, Western, and more.",
         themeDark: "Dark Mode",
         themeLight: "Light Mode",
         langBtn: "한글",
         contactTitle: "Partnership Inquiry",
+        contactDesc: "Have suggestions or want to work together? Send us a message.",
         labelEmail: "Your Email:",
         labelMessage: "Message:",
         submitBtn: "Send Message",
         commentsTitle: "Comments",
         animalTitle: "Animal Face Test",
-        animalBtn: "Start Test"
+        animalBtn: "Start Test",
+        animalDesc: "Does your face look more like a puppy or a cat? AI analyzes your webcam image locally to find out. (No images are saved).",
+        privacyLink: "Privacy Policy"
     },
     ko: {
         title: "로또 번호 생성기",
         genBtn: "번호 생성",
+        lottoDesc: "1부터 45까지의 숫자 중 행운의 6개 번호를 즉시 생성해 보세요. 다음 로또 당첨을 위한 무작위 조합을 제공합니다.",
         menuTitle: "저녁 메뉴 추천",
         menuBtn: "메뉴 추천",
+        menuDesc: "오늘 무엇을 먹을지 고민되시나요? 한식, 양식, 중식 등 다양한 메뉴 중에서 맛있는 식사를 골라드립니다.",
         themeDark: "다크 모드",
         themeLight: "라이트 모드",
         langBtn: "English",
         contactTitle: "제휴 문의",
+        contactDesc: "제안하고 싶은 내용이나 협업 문의가 있으신가요? 메시지를 보내주세요.",
         labelEmail: "이메일 주소:",
         labelMessage: "문의 내용:",
         submitBtn: "메시지 보내기",
         commentsTitle: "댓글",
         animalTitle: "동물상 테스트",
-        animalBtn: "테스트 시작"
+        animalBtn: "테스트 시작",
+        animalDesc: "내 얼굴은 강아지상일까요, 고양이상일까요? AI가 웹캠을 통해 실시간으로 분석해 드립니다. (이미지는 저장되지 않습니다).",
+        privacyLink: "개인정보처리방침"
     }
 };
 
@@ -161,6 +178,14 @@ function updateUI() {
     submitBtn.textContent = t.submitBtn;
     commentsTitle.textContent = t.commentsTitle;
     animalTitle.textContent = t.animalTitle;
+    
+    // Description Text Updates
+    lottoDesc.textContent = t.lottoDesc;
+    menuDesc.textContent = t.menuDesc;
+    animalDesc.textContent = t.animalDesc;
+    contactDesc.textContent = t.contactDesc;
+    privacyLink.textContent = t.privacyLink;
+
     if (!isRunning) { 
         animalBtn.textContent = t.animalBtn;
     }
