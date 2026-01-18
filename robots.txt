@@ -1,31 +1,4 @@
-# robots.txt for 로또 번호 생성
-# https://baesisi.org/
-
 User-agent: *
 Allow: /
 
-# Sitemap location
 Sitemap: https://baesisi.org/sitemap.xml
-
-# Crawl-delay for polite crawling
-Crawl-delay: 1
-
-# Google
-User-agent: Googlebot
-Allow: /
-
-# Naver
-User-agent: Yeti
-Allow: /
-
-# Bing
-User-agent: Bingbot
-Allow: /
-
-# Yahoo
-User-agent: Yahoo! Slurp
-Allow: /
-
-# Daum
-User-agent: Daumoa
-Allow: /
