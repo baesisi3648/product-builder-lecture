@@ -129,9 +129,10 @@ function createCard(item) {
                 <summary>Details & Map</summary>
                 <div class="map-wrapper">
                     <p style="font-size:0.8rem; margin:0 0 10px;">${address}</p>
-                    <div style="display:flex; gap:5px;">
-                        <a href="https://map.naver.com/v5/search/${encodeURIComponent(mapName)}" target="_blank" class="btn-primary" style="font-size:0.7rem; padding:5px 10px; text-decoration:none;">Naver Map</a>
-                        <a href="https://map.kakao.com/link/search/${encodeURIComponent(mapName)}" target="_blank" class="btn-primary" style="font-size:0.7rem; padding:5px 10px; text-decoration:none; background:#fee500; color:#000;">Kakao Map</a>
+                    <div style="display:flex; gap:5px; flex-wrap: wrap;">
+                        <a href="https://map.naver.com/v5/search/${encodeURIComponent(mapName)}" target="_blank" class="btn-primary" style="font-size:0.7rem; padding:5px 10px; text-decoration:none; background:#03C75A; color:white;">Naver</a>
+                        <a href="https://map.kakao.com/link/search/${encodeURIComponent(mapName)}" target="_blank" class="btn-primary" style="font-size:0.7rem; padding:5px 10px; text-decoration:none; background:#FEE500; color:black;">Kakao</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapName)}" target="_blank" class="btn-primary" style="font-size:0.7rem; padding:5px 10px; text-decoration:none; background:#4285F4; color:white;">Google</a>
                     </div>
                 </div>
             </details>
