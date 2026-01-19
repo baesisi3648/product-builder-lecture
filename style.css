@@ -62,6 +62,60 @@ body {
 }
 .title { font-size: 1.25rem; margin: 0; font-weight: 700; }
 
+/* Updated Controls for Language Buttons and Mode */
+.controls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.lang-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-lang {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: transform 0.1s ease, background-color 0.2s;
+    opacity: 0.5;
+    filter: grayscale(100%);
+}
+
+.btn-lang:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+    filter: grayscale(0%);
+    background-color: var(--bg-light);
+}
+
+.btn-lang.active {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
+.btn-mode {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-mode:hover {
+    background-color: var(--bg-light);
+    border-color: var(--text-sub);
+}
+
 .search-section { max-width: 1200px; margin: 10px auto 0; }
 .search-input-wrapper { position: relative; width: 100%; }
 #searchInput {

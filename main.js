@@ -38,14 +38,20 @@ async function init() {
 }
 
 function setupEventListeners() {
-    const langSwitcher = document.getElementById('langSwitcher');
-    if (langSwitcher) {
-        langSwitcher.addEventListener('change', (e) => {
-            currentLang = e.target.value;
+    // New Language Button Logic
+    const langButtons = document.querySelectorAll('.btn-lang');
+    langButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            currentLang = btn.getAttribute('data-lang');
+            
+            // Update active state
+            langButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
             updateUI();
             refreshGrids();
         });
-    }
+    });
 
     const themeToggle = document.getElementById('themeToggle');
     if (themeToggle) {
