@@ -1,337 +1,147 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free online tools: Lotto Number Generator, Dinner Menu Recommender, and AI Animal Face Test. Simple, fast, and fun utilities.">
-    <meta name="keywords" content="Lotto, Random Number, Dinner Recommendation, Animal Face Test, AI, Teachable Machine">
-    <title>Lotto & AI Tools : Free Online Utilities</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="canonical" href="https://baesisi.org/">
+    <title>kpopbase | Global Agency Map & AI Tools</title>
+    <meta name="description" content="Explore K-pop agencies, artists, and use free AI tools like the Animal Face Test.">
     
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="Lotto & Tools">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-62H53ZSN6C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-62H53ZSN6C');
+    </script>
     
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://baesisi.org/">
-    <meta property="og:site_name" content="Lotto & AI Tools">
-    <meta property="og:title" content="Lotto & AI Tools : Free Online Utilities">
-    <meta property="og:description" content="Generate lucky lotto numbers, get dinner recommendations, and take an AI animal face test—all in one place.">
-    <meta property="og:image" content="https://baesisi.org/candies.ico">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://baesisi.org/">
-    <meta property="twitter:title" content="Lotto & AI Tools : Free Online Utilities">
-    <meta property="twitter:description" content="Free online tools: Lotto Number Generator, Dinner Recommender, and AI Animal Face Test.">
-    <meta property="twitter:image" content="https://baesisi.org/candies.ico">
-
-        <!-- Structured Data (JSON-LD) -->
-
-        <script type="application/ld+json">
-
-        [
-
-          {
-
-            "@context": "https://schema.org",
-
-            "@type": "WebApplication",
-
-            "name": "Lotto & AI Tools",
-
-            "description": "A collection of fun and useful online tools including a Lotto Number Generator, Dinner Menu Recommender, and AI Animal Face Test.",
-
-            "url": "https://baesisi.org/",
-
-            "image": "https://baesisi.org/candies.ico",
-
-            "applicationCategory": "EntertainmentApplication, UtilityApplication",
-
-            "operatingSystem": "All",
-
-            "author": {
-
-                "@type": "Organization",
-
-                "name": "Lotto & Tools"
-
-            }
-
-          },
-
-          {
-
-            "@context": "https://schema.org",
-
-            "@type": "FAQPage",
-
-            "mainEntity": [{
-
-              "@type": "Question",
-
-              "name": "How does the Lotto Number Generator work?",
-
-              "acceptedAnswer": {
-
-                "@type": "Answer",
-
-                "text": "Our Lotto Number Generator uses a cryptographically secure random number generator to provide you with a set of 6 unique numbers between 1 and 45, simulating a fair lottery draw."
-
-              }
-
-            }, {
-
-              "@type": "Question",
-
-              "name": "Is the Animal Face Test safe to use?",
-
-              "acceptedAnswer": {
-
-                "@type": "Answer",
-
-                "text": "Yes, it is 100% safe. The Animal Face Test runs entirely in your browser using TensorFlow.js. Your webcam image is processed locally on your device and is never sent to any server."
-
-              }
-
-            }, {
-
-              "@type": "Question",
-
-              "name": "How does the Dinner Menu Recommender decide?",
-
-              "acceptedAnswer": {
-
-                "@type": "Answer",
-
-                "text": "The Dinner Menu Recommender randomly selects a meal from a curated list of popular dishes across various cuisines, helping you overcome decision paralysis."
-
-              }
-
-            }, {
-
-              "@type": "Question",
-
-              "name": "Is this service free?",
-
-              "acceptedAnswer": {
-
-                "@type": "Answer",
-
-                "text": "Yes, all tools on Lotto & AI Tools are completely free to use without any registration or hidden fees."
-
-              }
-
-            }]
-
-          }
-
-        ]
-
-        </script>
-
-    
-
-        <link rel="stylesheet" href="style.css">
-
-        <!-- Google tag (gtag.js) -->
-
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-62H53ZSN6C"></script>
-
-        <script>
-
-          window.dataLayer = window.dataLayer || [];
-
-          function gtag(){dataLayer.push(arguments);}
-
-          gtag('js', new Date());
-
-    
-
-          gtag('config', 'G-62H53ZSN6C');
-
-        </script>
-
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5399616733297013"
-
-         crossorigin="anonymous"></script>
-
-        <meta name="google-adsense-account" content="ca-pub-5399616733297013">
-
-        
-
-        <script type="text/javascript">
-
-            (function(c,l,a,r,i,t,y){
-
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-
-            })(window, document, "clarity", "script", "v36s2hzvio");
-
-        </script>
-
-    </head>
-
-    <body>
-
-        <div class="container">
-
-            <div class="controls">
-
-                <button id="lang-toggle">한글</button>
-
-                <button id="theme-toggle">Dark Mode</button>
-
-            </div>
-
-            
-
-            <h1 id="app-title">Lotto Number Generator</h1>
-
-            <p id="lotto-desc" class="description-text">Generate your lucky 6 numbers (1-45) instantly. Use this tool to get random combinations for your next lottery ticket.</p>
-
-            <button id="generate-btn">Generate Numbers</button>
-
-            <div id="lotto-numbers-container"></div>
-
-    
-
-            <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ccc;">
-
-    
-
-            <h2 id="menu-title">Dinner Menu Recommendation</h2>
-
-            <p id="menu-desc" class="description-text">Can't decide what to eat? Let our randomizer pick a delicious meal for you from various cuisines including Korean, Western, and more.</p>
-
-            <button id="menu-btn">Suggest Dinner</button>
-
-            <div id="menu-result"></div>
-
-    
-
-            <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ccc;">
-
-    
-
-            <h2 id="animal-title">Animal Face Test</h2>
-
-            <p id="animal-desc" class="description-text">Does your face look more like a puppy or a cat? AI analyzes your webcam image locally to find out. (No images are saved).</p>
-
-            <button id="animal-btn">Start Test</button>
-
-            <div id="webcam-container"></div>
-
-            <div id="label-container"></div>
-
-    
-
-            <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ccc;">
-
-    
-
-            <h2 id="contact-title">Partnership Inquiry</h2>
-
-            <p id="contact-desc" class="description-text">Have suggestions or want to work together? Send us a message.</p>
-
-            <form id="contact-form" action="https://formspree.io/f/mgoownqn" method="POST">
-
-                <div class="form-group">
-
-                    <label for="email" id="label-email">Your Email:</label>
-
-                    <input type="email" name="email" id="email" required>
-
-                </div>
-
-                <div class="form-group">
-
-                    <label for="message" id="label-message">Message:</label>
-
-                    <textarea name="message" id="message" required></textarea>
-
-                </div>
-
-                <button type="submit" id="submit-btn">Send Message</button>
-
-            </form>
-
-    
-
-            <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ccc;">
-
-    
-
-            <h2 id="faq-title">Frequently Asked Questions</h2>
-
-            <div class="faq-section" style="text-align: left; margin-bottom: 30px;">
-
-                <div class="faq-item">
-
-                    <h3>How does the Lotto Number Generator work?</h3>
-
-                    <p>Our Lotto Number Generator uses a cryptographically secure random number generator to provide you with a set of 6 unique numbers between 1 and 45, simulating a fair lottery draw.</p>
-
-                </div>
-
-                <div class="faq-item">
-
-                    <h3>Is the Animal Face Test safe to use?</h3>
-
-                    <p>Yes, it is 100% safe. The Animal Face Test runs entirely in your browser using TensorFlow.js. Your webcam image is processed locally on your device and is never sent to any server.</p>
-
-                </div>
-
-                <div class="faq-item">
-
-                    <h3>How does the Dinner Menu Recommender decide?</h3>
-
-                    <p>The Dinner Menu Recommender randomly selects a meal from a curated list of popular dishes across various cuisines, helping you overcome decision paralysis.</p>
-
-                </div>
-
-            </div>
-
-    
-
-            <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ccc;">
-
-    
-
-            <h2 id="comments-title">Comments</h2>
-        <div id="disqus_thread"></div>
-        <script>
-            // Lazy load Disqus
-            var disqus_observer = new IntersectionObserver(function(entries) {
-                if(entries[0].isIntersecting) {
-                    (function() {
-                        var d = document, s = d.createElement('script');
-                        s.src = 'https://product-builder-3.disqus.com/embed.js';
-                        s.setAttribute('data-timestamp', +new Date());
-                        (d.head || d.body).appendChild(s);
-                    })();
-                    disqus_observer.disconnect();
-                }
-            }, { threshold: [0] });
-            disqus_observer.observe(document.querySelector("#disqus_thread"));
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        
-        <footer>
-            <p>&copy; 2026 Lotto & Tools. All rights reserved.</p>
-            <p><a href="privacy.html" id="privacy-link">Privacy Policy</a></p>
-        </footer>
-    </div>
-    
-    <!-- Defer heavy scripts -->
+    <!-- Google Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5399616733297013" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-5399616733297013">
+
+    <!-- Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "v36s2hzvio");
+    </script>
+
+    <!-- Teachable Machine Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js" defer></script>
-    <script src="main.js" type="module"></script>
+
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-inner">
+            <div class="logo-area">
+                <div class="symbol">K</div>
+                <h1 class="title">kpopbase</h1>
+            </div>
+            <div class="controls">
+                <select id="langSwitcher" class="select-ui">
+                    <option value="kr">한국어</option>
+                    <option value="en">English</option>
+                    <option value="ja">日本語</option>
+                    <option value="es">Español</option>
+                    <option value="zh">中文</option>
+                </select>
+                <button id="themeToggle" class="btn-mode">Mode</button>
+            </div>
+        </div>
+        
+        <div class="search-section">
+            <div class="search-input-wrapper">
+                <input type="text" id="searchInput" placeholder="Search agency, artist, or CEO...">
+                <button id="clearSearch" class="btn-clear hidden">×</button>
+            </div>
+            <div class="stats-row">
+                <div class="stat-item">Agencies: <span id="totalAgencies">0</span></div>
+                <div class="stat-item">Artists: <span id="totalArtists">0</span></div>
+                <div class="stat-item">Updated: <span>2026.01.19</span></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="content-container">
+        <div id="noResults" class="no-results hidden"></div>
+
+        <section id="favSection" class="agency-section hidden">
+            <h2 id="favTitle" class="section-title">즐겨찾기</h2>
+            <div id="favGrid" class="agency-grid"></div>
+            <hr class="section-divider">
+        </section>
+
+        <section id="generalSection" class="agency-section">
+            <div id="agencyGrid" class="agency-grid"></div>
+            <div class="load-more">
+                <button id="loadMoreBtn" class="btn-primary">Load More Agencies</button>
+            </div>
+        </section>
+
+        <!-- Legacy Features Section -->
+        
+        <section id="animalSection" class="legacy-section">
+            <h2 class="legacy-title">Animal Face Test</h2>
+            <p class="legacy-desc">Does your face look more like a puppy or a cat? AI analyzes your webcam image locally to find out. (No images are saved).</p>
+            <button id="animal-btn">Start Test</button>
+            <div id="webcam-container"></div>
+            <div id="label-container"></div>
+        </section>
+
+        <section id="contactSection" class="legacy-section">
+            <h2 class="legacy-title">Partnership Inquiry</h2>
+            <p class="legacy-desc">Have suggestions or want to work together? Send us a message.</p>
+            <form id="contact-form" action="https://formspree.io/f/mgoownqn" method="POST">
+                <div class="form-group">
+                    <label for="email">Your Email:</label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea name="message" id="message" required></textarea>
+                </div>
+                <button type="submit" id="submit-btn">Send Message</button>
+            </form>
+        </section>
+
+        <section id="faqSection" class="legacy-section">
+            <h2 class="legacy-title">FAQ</h2>
+            <div class="faq-section">
+                <div class="faq-item">
+                    <h3>Is the Animal Face Test safe to use?</h3>
+                    <p>Yes, it is 100% safe. The Animal Face Test runs entirely in your browser using TensorFlow.js. Your webcam image is processed locally on your device and is never sent to any server.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is this service free?</h3>
+                    <p>Yes, all tools on kpopbase are completely free to use without any registration or hidden fees.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="commentsSection" class="legacy-section">
+            <h2 class="legacy-title">Comments</h2>
+            <div id="disqus_thread"></div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-inner">
+            <p>© 2026 kpopbase. Made by <a href="https://github.com/baesisi3648" target="_blank">BAESISI</a></p>
+            <nav class="footer-links">
+                <a href="#">Request Data Update</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
 </body>
 </html>
