@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KPOPBASE | Global Agency Map & AI Tools</title>
+    <title>KPOPBASE | KPOP Agency Map </title>
     <meta name="description" content="Discover the ultimate K-pop agency directory. Explore headquarters, artists, and CEOs of top companies like HYBE, SM, JYP, and YG. Use our AI Animal Face Test and more.">
     <meta name="keywords" content="K-pop, Kpop agencies, HYBE, SM, JYP, YG, Kpop map, agency directory, animal face test">
     <link rel="canonical" href="https://product-builder-lecture-58y.pages.dev/">
@@ -129,14 +129,14 @@
         
         <!-- Intro Section for AdSense Content Quality -->
         <section id="introSection" class="intro-section">
-            <h2 class="section-title">Welcome to KPOPBASE</h2>
-            <p class="intro-text">
+            <h2 id="introTitle" class="section-title">Welcome to KPOPBASE</h2>
+            <p id="introDesc1" class="intro-text">
                 KPOPBASE is your comprehensive guide to the South Korean entertainment industry. 
                 We provide an interactive map and detailed directory of the most influential K-pop agencies, 
                 from global powerhouses like <strong>HYBE</strong>, <strong>SM</strong>, <strong>JYP</strong>, and <strong>YG</strong>, 
                 to rising labels that are shaping the future of music.
             </p>
-            <p class="intro-text">
+            <p id="introDesc2" class="intro-text">
                 Explore company headquarters, discover artist rosters, and check CEO information all in one place.
                 Whether you are a dedicated fan wanting to know where your favorite group was formed, or an industry analyst looking for data, 
                 KPOPBASE connects you to the heart of Hallyu.
@@ -161,41 +161,41 @@
         <hr class="section-divider">
 
         <section id="contactSection" class="legacy-section">
-            <h2 class="legacy-title">Partnership Inquiry</h2>
-            <p class="legacy-desc">Have suggestions or want to work together? Send us a message.</p>
+            <h2 id="contactTitle" class="legacy-title">Partnership Inquiry</h2>
+            <p id="contactDesc" class="legacy-desc">Have suggestions or want to work together? Send us a message.</p>
             <form id="contact-form" action="https://formspree.io/f/mgoownqn" method="POST">
                 <div class="form-group">
-                    <label for="email">Your Email:</label>
+                    <label for="email" id="labelEmail">Your Email:</label>
                     <input type="email" name="email" id="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="message">Message:</label>
+                    <label for="message" id="labelMessage">Message:</label>
                     <textarea name="message" id="message" required></textarea>
                 </div>
-                <button type="submit" id="submit-btn">Send Message</button>
+                <button type="submit" id="submitBtn">Send Message</button>
             </form>
         </section>
 
         <section id="faqSection" class="legacy-section">
-            <h2 class="legacy-title">FAQ</h2>
+            <h2 id="faqTitle" class="legacy-title">FAQ</h2>
             <div class="faq-section">
                 <div class="faq-item">
-                    <h3>What is KPOPBASE?</h3>
-                    <p>KPOPBASE is a global directory service that helps users find information about K-pop entertainment agencies, including their location, artists, and key personnel.</p>
+                    <h3 id="faqQ1">What is KPOPBASE?</h3>
+                    <p id="faqA1">KPOPBASE is a global directory service that helps users find information about K-pop entertainment agencies, including their location, artists, and key personnel.</p>
                 </div>
                 <div class="faq-item">
-                    <h3>How accurate is the information?</h3>
-                    <p>We strive to keep our database updated with the latest information. Agency addresses and artist rosters are verified regularly.</p>
+                    <h3 id="faqQ2">How accurate is the information?</h3>
+                    <p id="faqA2">We strive to keep our database updated with the latest information. Agency addresses and artist rosters are verified regularly.</p>
                 </div>
                 <div class="faq-item">
-                    <h3>Is this service free?</h3>
-                    <p>Yes, all tools on KPOPBASE, including the Agency Map and Animal Face Test, are completely free to use.</p>
+                    <h3 id="faqQ3">Is this service free?</h3>
+                    <p id="faqA3">Yes, all tools on KPOPBASE, including the Agency Map and Animal Face Test, are completely free to use.</p>
                 </div>
             </div>
         </section>
 
         <section id="commentsSection" class="legacy-section">
-            <h2 class="legacy-title">Comments</h2>
+            <h2 id="commentsTitle" class="legacy-title">Comments</h2>
             <div id="disqus_thread"></div>
         </section>
 
@@ -205,8 +205,8 @@
     <div id="animalModal" class="modal hidden">
         <div class="modal-content">
             <span class="close-modal" id="closeAnimalModal">&times;</span>
-            <h2 class="legacy-title">Animal Face Test</h2>
-            <p class="legacy-desc">Does your face look more like a puppy or a cat? AI analyzes your webcam image locally to find out. (No images are saved).</p>
+            <h2 id="modalTitle" class="legacy-title">Animal Face Test</h2>
+            <p id="modalDesc" class="legacy-desc">Does your face look more like a puppy or a cat? AI analyzes your webcam image locally to find out. (No images are saved).</p>
             <button id="animalStartBtn" class="btn-primary" style="margin-bottom: 20px;">Start Test</button>
             <div id="webcam-container"></div>
             <div id="label-container"></div>

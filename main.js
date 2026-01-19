@@ -5,9 +5,56 @@ let currentLang = 'kr';
 let favorites = JSON.parse(localStorage.getItem('kpopbase_favs')) || [];
 
 const i18n = {
+    // Navigation / General
     favTitle: { kr: "즐겨찾기", en: "Favorites", ja: "お気に入り", es: "Favoritos", zh: "收藏" },
-    noResults: { kr: "검색 결과가 없습니다.", en: "No results found.", ja: "検索結果がありません.", es: "No se encontraron resultados.", zh: "没有找到结果。" },
-    loadMore: { kr: "소속사 더 보기", en: "Load More Agencies", ja: "もっと見る", es: "Cargar más", zh: "加载更多" }
+    noResults: { kr: "검색 결과가 없습니다.", en: "No results found.", ja: "検索結果がありません。", es: "No se encontraron resultados.", zh: "没有找到结果。" },
+    loadMore: { kr: "소속사 더 보기", en: "Load More Agencies", ja: "もっと見る", es: "Cargar más", zh: "加载更多" },
+    commentsTitle: { kr: "댓글", en: "Comments", ja: "コメント", es: "Comentarios", zh: "评论" },
+    
+    // Intro Section
+    introTitle: { 
+        kr: "KPOPBASE에 오신 것을 환영합니다", 
+        en: "Welcome to KPOPBASE",
+        ja: "KPOPBASEへようこそ",
+        es: "Bienvenido a KPOPBASE",
+        zh: "欢迎来到 KPOPBASE"
+    },
+    introDesc1: { 
+        kr: "KPOPBASE는 대한민국 엔터테인먼트 산업에 대한 포괄적인 가이드를 제공합니다. HYBE, SM, JYP, YG와 같은 글로벌 기업부터 미래의 음악을 만들어가는 라이징 레이블까지, 가장 영향력 있는 K-pop 소속사들의 상세 정보를 대화형 지도와 함께 확인해보세요.", 
+        en: "KPOPBASE is your comprehensive guide to the South Korean entertainment industry. We provide an interactive map and detailed directory of the most influential K-pop agencies, from global powerhouses like HYBE, SM, JYP, and YG, to rising labels that are shaping the future of music.",
+        ja: "KPOPBASEは韓国エンターテインメント業界の総合ガイドです。HYBE、SM、JYP、YGなどの世界的企業から、未来の音楽を形作る注目のレーベルまで、最も影響力のあるK-POP事務所の詳細情報をインタラクティブな地図とともに提供します。",
+        es: "KPOPBASE es su guía completa de la industria del entretenimiento de Corea del Sur. Proporcionamos un mapa interactivo y un directorio detallado de las agencias de K-pop más influyentes, desde potencias mundiales como HYBE, SM, JYP y YG, hasta sellos emergentes que están dando forma al futuro de la música.",
+        zh: "KPOPBASE 是您了解韩国娱乐产业的综合指南。我们提供互动地图和详尽的 K-pop 经纪公司目录，涵盖 HYBE、SM、JYP 和 YG 等全球巨头，以及正在塑造音乐未来的新兴厂牌。"
+    },
+    introDesc2: { 
+        kr: "소속사의 본사 위치를 탐색하고, 소속 아티스트를 발견하며, CEO 정보를 한곳에서 확인하세요. 좋아하는 그룹이 탄생한 곳이 궁금한 열성 팬이든, 데이터를 찾는 업계 분석가든, KPOPBASE가 여러분을 한류의 중심지로 연결해 드립니다.", 
+        en: "Explore company headquarters, discover artist rosters, and check CEO information all in one place. Whether you are a dedicated fan wanting to know where your favorite group was formed, or an industry analyst looking for data, KPOPBASE connects you to the heart of Hallyu.",
+        ja: "事務所の本社位置を探索し、所属アーティストを発見し、CEO情報を一か所で確認しましょう。好きなグループが誕生した場所を知りたい熱心なファンでも、データを探している業界アナリストでも、KPOPBASEはあなたを韓流の中心へと繋げます。",
+        es: "Explore las sedes de las empresas, descubra las listas de artistas y consulte la información de los directores ejecutivos, todo en un solo lugar. Tanto si eres un fan dedicado que quiere saber dónde se formó su grupo favorito, como si eres un analista de la industria en busca de datos, KPOPBASE te conecta con el corazón del Hallyu.",
+        zh: "在一个地方探索公司总部、发现艺人阵容并查看 CEO 信息。无论您是想知道最喜欢的组合在哪里成立的忠实粉丝，还是寻找数据的行业分析师，KPOPBASE 都能将您与韩流的中心连接起来。"
+    },
+
+    // Contact Section
+    contactTitle: { kr: "제휴 문의", en: "Partnership Inquiry", ja: "提携のお問い合わせ", es: "Consulta de asociación", zh: "合作咨询" },
+    contactDesc: { kr: "제안하고 싶은 내용이나 협업 문의가 있으신가요? 메시지를 보내주세요.", en: "Have suggestions or want to work together? Send us a message.", ja: "提案や協力のお問い合わせはありますか？メッセージを送ってください。", es: "¿Tiene sugerencias o quiere trabajar juntos? Envíenos un mensaje.", zh: "有建议或想合作吗？请给我们发消息。" },
+    labelEmail: { kr: "이메일 주소:", en: "Your Email:", ja: "メールアドレス:", es: "Su correo electrónico:", zh: "您的电子邮件：" },
+    labelMessage: { kr: "문의 내용:", en: "Message:", ja: "メッセージ:", es: "Mensaje:", zh: "留言：" },
+    submitBtn: { kr: "메시지 보내기", en: "Send Message", ja: "送信", es: "Enviar mensaje", zh: "发送消息" },
+
+    // FAQ Section
+    faqTitle: { kr: "자주 묻는 질문 (FAQ)", en: "FAQ", ja: "よくある質問", es: "Preguntas frecuentes", zh: "常见问题" },
+    faqQ1: { kr: "KPOPBASE란 무엇인가요?", en: "What is KPOPBASE?", ja: "KPOPBASEとは何ですか？", es: "¿Qué es KPOPBASE?", zh: "什么是 KPOPBASE？" },
+    faqA1: { kr: "KPOPBASE는 K-pop 엔터테인먼트 소속사의 위치, 아티스트, 주요 인사 정보를 쉽게 찾을 수 있도록 돕는 글로벌 디렉토리 서비스입니다.", en: "KPOPBASE is a global directory service that helps users find information about K-pop entertainment agencies, including their location, artists, and key personnel.", ja: "KPOPBASEは、K-POPエンターテインメント事務所の位置、アーティスト、主要人物情報などを簡単に見つけることができるグローバルディレクトリサービスです。", es: "KPOPBASE es un servicio de directorio global que ayuda a los usuarios a encontrar información sobre las agencias de entretenimiento de K-pop, incluida su ubicación, artistas y personal clave.", zh: "KPOPBASE 是一项全球目录服务，旨在帮助用户查找有关 K-pop 娱乐经纪公司的信息，包括其位置、艺人和关键人员。" },
+    faqQ2: { kr: "정보는 얼마나 정확한가요?", en: "How accurate is the information?", ja: "情報はどのくらい正確ですか？", es: "¿Qué tan precisa es la información?", zh: "信息的准确性如何？" },
+    faqA2: { kr: "최신 정보를 유지하기 위해 노력하고 있습니다. 소속사 주소와 아티스트 목록은 정기적으로 검증됩니다.", en: "We strive to keep our database updated with the latest information. Agency addresses and artist rosters are verified regularly.", ja: "最新情報を維持するために努力しています。事務所の住所やアーティストリストは定期的に検証されます。", es: "Nos esforzamos por mantener nuestra base de datos actualizada con la información más reciente. Las direcciones de las agencias y las listas de artistas se verifican regularmente.", zh: "我们努力保持数据库更新最新信息。经纪公司地址和艺人名单会定期核实。" },
+    faqQ3: { kr: "이 서비스는 무료인가요?", en: "Is this service free?", ja: "このサービスは無料ですか？", es: "¿Este servicio es gratuito?", zh: "这项服务是免费的吗？" },
+    faqA3: { kr: "네, 소속사 지도와 동물상 테스트를 포함한 KPOPBASE의 모든 도구는 완전히 무료입니다.", en: "Yes, all tools on KPOPBASE, including the Agency Map and Animal Face Test, are completely free to use.", ja: "はい、事務所マップや動物顔テストを含むKPOPBASEのすべてのツールは完全に無料です。", es: "Sí, todas las herramientas de KPOPBASE, incluido el mapa de agencias y la prueba de cara de animal, son completamente gratuitas.", zh: "是的，KPOPBASE 上的所有工具，包括经纪公司地图和动物脸测试，都是完全免费使用的。" },
+
+    // Animal Modal
+    animalTestBtn: { kr: "🐶 동물상 테스트", en: "🐶 Animal Test", ja: "🐶 動物顔テスト", es: "🐶 Prueba Animal", zh: "🐶 动物脸测试" },
+    modalTitle: { kr: "동물상 테스트", en: "Animal Face Test", ja: "動物顔テスト", es: "Prueba de Cara de Animal", zh: "动物脸测试" },
+    modalDesc: { kr: "내 얼굴은 강아지상일까요, 고양이상일까요? AI가 웹캠을 통해 실시간으로 분석해 드립니다. (이미지는 저장되지 않습니다).", en: "Does your face look more like a puppy or a cat? AI analyzes your webcam image locally to find out. (No images are saved).", ja: "私の顔は犬顔？猫顔？AIがウェブカメラを通じてリアルタイムで分析します（画像は保存されません）。", es: "¿Tu cara se parece más a la de un cachorro o a la de un gato? La IA analiza la imagen de tu cámara web localmente para averiguarlo. (No se guardan imágenes).", zh: "你的脸更像小狗还是猫？AI 通过本地网络摄像头图像进行分析以找出答案。（不会保存图像）。" },
+    animalStartBtn: { kr: "테스트 시작", en: "Start Test", ja: "テスト開始", es: "Iniciar prueba", zh: "开始测试" }
 };
 
 // --- Teachable Machine Setup ---
@@ -211,11 +258,26 @@ function refreshGrids() {
 }
 
 function updateUI() {
-    const favTitle = document.getElementById('favTitle');
-    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    const ids = [
+        'favTitle', 'introTitle', 'introDesc1', 'introDesc2',
+        'contactTitle', 'contactDesc', 'labelEmail', 'labelMessage', 'submitBtn',
+        'faqTitle', 'faqQ1', 'faqA1', 'faqQ2', 'faqA2', 'faqQ3', 'faqA3',
+        'commentsTitle', 'animalTestBtn', 'modalTitle', 'modalDesc', 'animalStartBtn',
+        'loadMoreBtn'
+    ];
+
+    ids.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && i18n[id] && i18n[id][currentLang]) {
+            el.textContent = i18n[id][currentLang];
+        }
+    });
     
-    if(favTitle) favTitle.textContent = i18n.favTitle[currentLang];
-    if(loadMoreBtn) loadMoreBtn.textContent = i18n.loadMore[currentLang];
+    // Also update noResults text if visible (handled in search logic, but good to have fallback)
+    const noResults = document.getElementById('noResults');
+    if (noResults && !noResults.classList.contains('hidden')) {
+        noResults.textContent = i18n.noResults[currentLang];
+    }
 }
 
 function toggleTheme() {

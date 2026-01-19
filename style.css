@@ -288,7 +288,7 @@ summary { font-size: 0.85rem; color: var(--primary-blue); cursor: pointer; font-
     line-height: 1.6;
 }
 
-#animalStartBtn, #submit-btn {
+#animalStartBtn, #submitBtn {
     background-color: var(--primary-blue);
     color: white;
     padding: 10px 24px;
@@ -300,7 +300,7 @@ summary { font-size: 0.85rem; color: var(--primary-blue); cursor: pointer; font-
     transition: opacity 0.2s, transform 0.1s;
 }
 
-#animalStartBtn:hover, #submit-btn:hover {
+#animalStartBtn:hover, #submitBtn:hover {
     opacity: 0.9;
     transform: translateY(-1px);
 }
