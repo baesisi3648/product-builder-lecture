@@ -107,15 +107,18 @@ function renderGeneral(items, clear = false) {
 function createCard(item) {
     const card = document.createElement('div');
     card.className = `agency-card ${favorites.includes(item.id) ? 'is-favorite' : ''}`;
-    // Fallback for missing language keys
+    
     const name = item.name[currentLang] || item.name['en'] || item.name['kr'];
     const ceo = item.ceo[currentLang] || item.ceo['en'] || item.ceo['kr'];
     const address = item.address[currentLang] || item.address['en'] || item.address['kr'];
     const mapName = item.name.kr || item.name.en;
 
+    // Use a more reliable thumbnail source (mqdefault is often more consistent)
+    const thumbUrl = `https://img.youtube.com/vi/${item.video_id}/mqdefault.jpg`;
+
     card.innerHTML = `
         <button class="fav-btn" onclick="toggleFavorite(${item.id})">♥</button>
-        <div class="thumb-box" style="background-image: url('https://img.youtube.com/vi/${item.video_id}/hqdefault.jpg')"></div>
+        <div class="thumb-box" style="background-image: url('${thumbUrl}')"></div>
         <div class="card-info">
             <h3>${name}</h3>
             <p class="ceo-name">CEO: ${ceo}</p>

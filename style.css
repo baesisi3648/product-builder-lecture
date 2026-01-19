@@ -171,7 +171,14 @@ body {
     border-color: var(--primary-blue);
 }
 
-.thumb-box { width: 100%; aspect-ratio: 16 / 9; background-size: cover; background-position: center; }
+.thumb-box { 
+    width: 100%; 
+    aspect-ratio: 16 / 9; 
+    background-size: cover; 
+    background-position: center; 
+    background-color: var(--bg-light); /* Placeholder color */
+    background-repeat: no-repeat;
+}
 
 .card-info { padding: 15px; }
 .card-info h3 { margin: 0 0 5px; font-weight: 700; font-size: 1.1rem; }
