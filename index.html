@@ -46,6 +46,7 @@
                 <h1 class="title">KPOPBASE</h1>
             </div>
             <div class="controls">
+                <button id="animalTestBtn" class="btn-mode">🐶 Animal Test</button>
                 <div id="langButtons" class="lang-buttons">
                     <button class="btn-lang active" data-lang="kr" title="한국어">
                         <img src="https://flagcdn.com/w40/kr.png" alt="Korea">
@@ -96,17 +97,21 @@
             </div>
         </section>
 
-        <!-- Legacy Features Section -->
-        
-        <section id="animalSection" class="legacy-section">
+    </main>
+
+    <!-- Animal Test Modal -->
+    <div id="animalModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal" id="closeAnimalModal">&times;</span>
             <h2 class="legacy-title">Animal Face Test</h2>
             <p class="legacy-desc">Does your face look more like a puppy or a cat? AI analyzes your webcam image locally to find out. (No images are saved).</p>
-            <button id="animal-btn">Start Test</button>
+            <button id="animalStartBtn" class="btn-primary" style="margin-bottom: 20px;">Start Test</button>
             <div id="webcam-container"></div>
             <div id="label-container"></div>
-        </section>
+        </div>
+    </div>
 
-        <section id="contactSection" class="legacy-section">
+    <footer class="main-footer">
             <h2 class="legacy-title">Partnership Inquiry</h2>
             <p class="legacy-desc">Have suggestions or want to work together? Send us a message.</p>
             <form id="contact-form" action="https://formspree.io/f/mgoownqn" method="POST">

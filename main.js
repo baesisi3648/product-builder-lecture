@@ -29,9 +29,9 @@ async function init() {
         initDisqus();
         
         // Init Animal Test Listener
-        const animalBtn = document.getElementById('animal-btn');
-        if (animalBtn) {
-            animalBtn.addEventListener('click', initAnimalTest);
+        const animalStartBtn = document.getElementById('animalStartBtn');
+        if (animalStartBtn) {
+            animalStartBtn.addEventListener('click', initAnimalTest);
         }
 
     } catch (e) { console.error("Data load failed", e); }
@@ -72,6 +72,29 @@ function setupEventListeners() {
             window.scrollBy({ top: 300, behavior: 'smooth' });
         });
     }
+
+    // Modal Logic
+    const animalModal = document.getElementById('animalModal');
+    const animalTestBtn = document.getElementById('animalTestBtn');
+    const closeAnimalModal = document.getElementById('closeAnimalModal');
+
+    if (animalTestBtn && animalModal) {
+        animalTestBtn.addEventListener('click', () => {
+            animalModal.classList.remove('hidden');
+        });
+    }
+
+    if (closeAnimalModal && animalModal) {
+        closeAnimalModal.addEventListener('click', () => {
+            animalModal.classList.add('hidden');
+        });
+    }
+
+    window.addEventListener('click', (e) => {
+        if (e.target === animalModal) {
+            animalModal.classList.add('hidden');
+        }
+    });
 }
 
 function renderInitial() {
@@ -217,7 +240,7 @@ function updateStats() {
 async function initAnimalTest() {
     if (isRunning) return;
     isRunning = true;
-    const btn = document.getElementById('animal-btn');
+    const btn = document.getElementById('animalStartBtn');
     if (btn) btn.disabled = true;
 
     const modelURL = URL + "model.json";
