@@ -114,8 +114,8 @@ function createCard(item) {
     // Use the specific address for map searches to be more accurate
     const mapQuery = item.address.kr || item.address.en;
 
-    // Use a more reliable thumbnail source (mqdefault is often more consistent)
-    const thumbUrl = `https://img.youtube.com/vi/${item.video_id}/mqdefault.jpg`;
+    // Prioritize manual image, fallback to YouTube thumbnail
+    const thumbUrl = item.image ? item.image : `https://img.youtube.com/vi/${item.video_id}/mqdefault.jpg`;
 
     card.innerHTML = `
         <button class="fav-btn" onclick="toggleFavorite(${item.id})">♥</button>
@@ -124,7 +124,7 @@ function createCard(item) {
             <h3>${name}</h3>
             <p class="ceo-name">CEO: ${ceo}</p>
             <div class="artist-list">
-                ${item.artists.slice(0, 4).map(a => `<span class="artist-tag">${a}</span>`).join('')}
+                ${item.artists.slice(0, 4).map(a => `<a href="https://www.google.com/search?q=${encodeURIComponent(a)}" target="_blank" class="artist-tag" style="text-decoration:none;">${a}</a>`).join('')}
             </div>
             <details>
                 <summary>Details & Map</summary>
