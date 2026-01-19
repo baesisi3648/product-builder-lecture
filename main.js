@@ -111,7 +111,8 @@ function createCard(item) {
     const name = item.name[currentLang] || item.name['en'] || item.name['kr'];
     const ceo = item.ceo[currentLang] || item.ceo['en'] || item.ceo['kr'];
     const address = item.address[currentLang] || item.address['en'] || item.address['kr'];
-    const mapName = item.name.kr || item.name.en;
+    // Use the specific address for map searches to be more accurate
+    const mapQuery = item.address.kr || item.address.en;
 
     // Use a more reliable thumbnail source (mqdefault is often more consistent)
     const thumbUrl = `https://img.youtube.com/vi/${item.video_id}/mqdefault.jpg`;
@@ -130,9 +131,9 @@ function createCard(item) {
                 <div class="map-wrapper">
                     <p style="font-size:0.8rem; margin:0 0 10px;">${address}</p>
                     <div style="display:flex; gap:5px; flex-wrap: wrap;">
-                        <a href="https://map.naver.com/v5/search/${encodeURIComponent(mapName)}" target="_blank" class="btn-primary" style="font-size:0.7rem; padding:5px 10px; text-decoration:none; background:#03C75A; color:white;">Naver</a>
-                        <a href="https://map.kakao.com/link/search/${encodeURIComponent(mapName)}" target="_blank" class="btn-primary" style="font-size:0.7rem; padding:5px 10px; text-decoration:none; background:#FEE500; color:black;">Kakao</a>
-                        <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapName)}" target="_blank" class="btn-primary" style="font-size:0.7rem; padding:5px 10px; text-decoration:none; background:#4285F4; color:white;">Google</a>
+                        <a href="https://map.naver.com/v5/search/${encodeURIComponent(mapQuery)}" target="_blank" class="btn-primary" style="font-size:0.7rem; padding:5px 10px; text-decoration:none; background:#03C75A; color:white;">Naver</a>
+                        <a href="https://map.kakao.com/link/search/${encodeURIComponent(mapQuery)}" target="_blank" class="btn-primary" style="font-size:0.7rem; padding:5px 10px; text-decoration:none; background:#FEE500; color:black;">Kakao</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}" target="_blank" class="btn-primary" style="font-size:0.7rem; padding:5px 10px; text-decoration:none; background:#4285F4; color:white;">Google</a>
                     </div>
                 </div>
             </details>
