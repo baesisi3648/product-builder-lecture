@@ -45,6 +45,8 @@ const i18n = {
     faqTitle: { kr: "자주 묻는 질문 (FAQ)", en: "FAQ", ja: "よくある質問", es: "Preguntas frecuentes", zh: "常见问题" },
     faqQ1: { kr: "KPOPBASE란 무엇인가요?", en: "What is KPOPBASE?", ja: "KPOPBASEとは何ですか？", es: "¿Qué es KPOPBASE?", zh: "什么是 KPOPBASE？" },
     faqA1: { kr: "KPOPBASE는 K-pop 엔터테인먼트 소속사의 위치, 아티스트, 주요 인사 정보를 쉽게 찾을 수 있도록 돕는 글로벌 디렉토리 서비스입니다.", en: "KPOPBASE is a global directory service that helps users find information about K-pop entertainment agencies, including their location, artists, and key personnel.", ja: "KPOPBASEは、K-POPエンターテインメント事務所の位置、アーティスト、主要人物情報などを簡単に見つけることができるグローバルディレクトリサービスです。", es: "KPOPBASE es un servicio de directorio global que ayuda a los usuarios a encontrar información sobre las agencias de entretenimiento de K-pop, incluida su ubicación, artistas y personal clave.", zh: "KPOPBASE 是一项全球目录服务，旨在帮助用户查找有关 K-pop 娱乐经纪公司的信息，包括其位置、艺人和关键人员。" },
+    faqQ4: { kr: "K-pop 4대 기획사는 어디인가요?", en: "What are the Big 4 K-pop agencies?", ja: "K-POPの4大事務所はどこですか？", es: "¿Cuáles son las 4 grandes agencias de K-pop?", zh: "K-pop 四大经纪公司是哪些？" },
+    faqA4: { kr: "'4대 기획사'는 하이브(HYBE), SM 엔터테인먼트, JYP 엔터테인먼트, YG 엔터테인먼트를 말합니다. 이들은 세계적으로 인기 있는 K-pop 아티스트들을 다수 관리하고 있습니다.", en: "The 'Big 4' K-pop agencies are considered to be HYBE, SM Entertainment, JYP Entertainment, and YG Entertainment. They manage many of the most popular global K-pop acts.", ja: "「4大事務所」とは、HYBE、SMエンターテインメント、JYPエンターテインメント、YGエンターテインメントを指します。彼らは世界的に人気のあるK-POPアーティストを多数管理しています。", es: "Se considera que las '4 grandes' agencias de K-pop son HYBE, SM Entertainment, JYP Entertainment y YG Entertainment. Gestionan muchos de los actos de K-pop más populares a nivel mundial.", zh: "“四大” K-pop 经纪公司被认为是 HYBE、SM 娱乐、JYP 娱乐和 YG 娱乐。他们管理着许多全球最受欢迎的 K-pop 艺人。" },
     faqQ2: { kr: "정보는 얼마나 정확한가요?", en: "How accurate is the information?", ja: "情報はどのくらい正確ですか？", es: "¿Qué tan precisa es la información?", zh: "信息的准确性如何？" },
     faqA2: { kr: "최신 정보를 유지하기 위해 노력하고 있습니다. 소속사 주소와 아티스트 목록은 정기적으로 검증됩니다.", en: "We strive to keep our database updated with the latest information. Agency addresses and artist rosters are verified regularly.", ja: "最新情報を維持するために努力しています。事務所の住所やアーティストリストは定期的に検証されます。", es: "Nos esforzamos por mantener nuestra base de datos actualizada con la información más reciente. Las direcciones de las agencias y las listas de artistas se verifican regularmente.", zh: "我们努力保持数据库更新最新信息。经纪公司地址和艺人名单会定期核实。" },
     faqQ3: { kr: "이 서비스는 무료인가요?", en: "Is this service free?", ja: "このサービスは無料ですか？", es: "¿Este servicio es gratuito?", zh: "这项服务是免费的吗？" },
@@ -261,7 +263,7 @@ function updateUI() {
     const ids = [
         'favTitle', 'introTitle', 'introDesc1', 'introDesc2',
         'contactTitle', 'contactDesc', 'labelEmail', 'labelMessage', 'submitBtn',
-        'faqTitle', 'faqQ1', 'faqA1', 'faqQ2', 'faqA2', 'faqQ3', 'faqA3',
+        'faqTitle', 'faqQ1', 'faqA1', 'faqQ4', 'faqA4', 'faqQ2', 'faqA2', 'faqQ3', 'faqA3',
         'commentsTitle', 'animalTestBtn', 'modalTitle', 'modalDesc', 'animalStartBtn',
         'loadMoreBtn'
     ];
