@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>kpopbase | Global Agency Map & AI Tools</title>
-    <meta name="description" content="Explore K-pop agencies, artists, and use free AI tools like the Animal Face Test.">
+    <title>KPOPBASE | Global Agency Map & AI Tools</title>
+    <meta name="description" content="Discover the ultimate K-pop agency directory. Explore headquarters, artists, and CEOs of top companies like HYBE, SM, JYP, and YG. Use our AI Animal Face Test and more.">
+    <meta name="keywords" content="K-pop, Kpop agencies, HYBE, SM, JYP, YG, Kpop map, agency directory, animal face test">
     
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
@@ -82,6 +83,23 @@
     </header>
 
     <main class="content-container">
+        
+        <!-- Intro Section for AdSense Content Quality -->
+        <section id="introSection" class="intro-section">
+            <h2 class="section-title">Welcome to KPOPBASE</h2>
+            <p class="intro-text">
+                KPOPBASE is your comprehensive guide to the South Korean entertainment industry. 
+                We provide an interactive map and detailed directory of the most influential K-pop agencies, 
+                from global powerhouses like <strong>HYBE</strong>, <strong>SM</strong>, <strong>JYP</strong>, and <strong>YG</strong>, 
+                to rising labels that are shaping the future of music.
+            </p>
+            <p class="intro-text">
+                Explore company headquarters, discover artist rosters, and check CEO information all in one place.
+                Whether you are a dedicated fan wanting to know where your favorite group was formed, or an industry analyst looking for data, 
+                KPOPBASE connects you to the heart of Hallyu.
+            </p>
+        </section>
+
         <div id="noResults" class="no-results hidden"></div>
 
         <section id="favSection" class="agency-section hidden">
@@ -97,21 +115,9 @@
             </div>
         </section>
 
-    </main>
+        <hr class="section-divider">
 
-    <!-- Animal Test Modal -->
-    <div id="animalModal" class="modal hidden">
-        <div class="modal-content">
-            <span class="close-modal" id="closeAnimalModal">&times;</span>
-            <h2 class="legacy-title">Animal Face Test</h2>
-            <p class="legacy-desc">Does your face look more like a puppy or a cat? AI analyzes your webcam image locally to find out. (No images are saved).</p>
-            <button id="animalStartBtn" class="btn-primary" style="margin-bottom: 20px;">Start Test</button>
-            <div id="webcam-container"></div>
-            <div id="label-container"></div>
-        </div>
-    </div>
-
-    <footer class="main-footer">
+        <section id="contactSection" class="legacy-section">
             <h2 class="legacy-title">Partnership Inquiry</h2>
             <p class="legacy-desc">Have suggestions or want to work together? Send us a message.</p>
             <form id="contact-form" action="https://formspree.io/f/mgoownqn" method="POST">
@@ -131,12 +137,16 @@
             <h2 class="legacy-title">FAQ</h2>
             <div class="faq-section">
                 <div class="faq-item">
-                    <h3>Is the Animal Face Test safe to use?</h3>
-                    <p>Yes, it is 100% safe. The Animal Face Test runs entirely in your browser using TensorFlow.js. Your webcam image is processed locally on your device and is never sent to any server.</p>
+                    <h3>What is KPOPBASE?</h3>
+                    <p>KPOPBASE is a global directory service that helps users find information about K-pop entertainment agencies, including their location, artists, and key personnel.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How accurate is the information?</h3>
+                    <p>We strive to keep our database updated with the latest information. Agency addresses and artist rosters are verified regularly.</p>
                 </div>
                 <div class="faq-item">
                     <h3>Is this service free?</h3>
-                    <p>Yes, all tools on kpopbase are completely free to use without any registration or hidden fees.</p>
+                    <p>Yes, all tools on KPOPBASE, including the Agency Map and Animal Face Test, are completely free to use.</p>
                 </div>
             </div>
         </section>
@@ -148,9 +158,21 @@
 
     </main>
 
+    <!-- Animal Test Modal -->
+    <div id="animalModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal" id="closeAnimalModal">&times;</span>
+            <h2 class="legacy-title">Animal Face Test</h2>
+            <p class="legacy-desc">Does your face look more like a puppy or a cat? AI analyzes your webcam image locally to find out. (No images are saved).</p>
+            <button id="animalStartBtn" class="btn-primary" style="margin-bottom: 20px;">Start Test</button>
+            <div id="webcam-container"></div>
+            <div id="label-container"></div>
+        </div>
+    </div>
+
     <footer class="main-footer">
         <div class="footer-inner">
-            <p>© 2026 kpopbase. Made by <a href="https://github.com/baesisi3648" target="_blank">BAESISI</a></p>
+            <p>© 2026 KPOPBASE. Made by <a href="https://github.com/baesisi3648" target="_blank">BAESISI</a></p>
             <nav class="footer-links">
                 <a href="#">Request Data Update</a>
                 <a href="privacy.html">Privacy Policy</a>
