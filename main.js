@@ -76,7 +76,7 @@ function setupEventListeners() {
 
 function renderInitial() {
     renderFavorites();
-    renderGeneral(allData.slice(0, step));
+    renderGeneral(allData.slice(0, step), true);
     currentIdx = step;
 }
 
